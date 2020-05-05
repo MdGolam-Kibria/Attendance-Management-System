@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        .addFculty{
+         background-color: rgba(255, 255, 182, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 71%;
+            width: 90%;
+            position: absolute;
+            top: 50px;
+        }
+        .addFcultyMain{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+ </head>
+<body class="container">
+ <div style="display: flex;">
+     <h6 align="right"style="font-size: 20px;margin-top: 10px;">Hi Guest</h6>
+     &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+     <h1 align="left">Attendance Management System</h1>
+ </div>
+
+<div style="background-color: #F0F0F0;height: 100px;width: 100%; display: block">
+<div style="display: inline-flex;">
+<h5 style="font-size: 32px;position: relative;bottom: -29px;" onmouseover="this.style.color='#E1E6F6'"onmouseout="this.style.color='#2B2B2B'">Home</h5>
+    &nbsp &nbsp &nbsp
+<h5 style="font-size: 32px; position: relative;bottom: -29px;color: #2F7BFE;" class="signIn"onclick="loginClick()">SignIn</h5>
+</div>
+</div>
+ <!--navbarForAdmin-->
+<div class="bs-example" style="display: block">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a href="#" class="navbar-brand">Home</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav">
+                  <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Faculty</a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Add Faculty</a>
+                        <a href="#" class="dropdown-item">Faculty List</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Student</a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Add Student</a>
+                        <a href="#" class="dropdown-item">Student List</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Course</a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Add Course</a>
+                        <a href="#" class="dropdown-item">Course List</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Assign Faculty</a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Add Assign Faculty</a>
+                        <a href="#" class="dropdown-item">Assign Faculty List</a>
+                    </div>
+                </div>
+                
+            </div>
+            <form class="form-inline">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-secondary"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+            <div class="navbar-nav">
+                <a href="#" class="nav-item nav-link">Login</a>
+            </div>
+        </div>
+    </nav>
+</div>
+<!--navbarForAdmin-->
+<!--addfaculty-->
+ <div class="addFcultyMain container" style="margin-top: 50px;display: none;">
+     <div class="addFculty">
+         <table border="0" cellpadding="10">
+             <tr>
+                 <td>
+                     Name:- &nbsp; &nbsp; &nbsp;<input type="text" placeholder="Enter your Name" size="67" required/>
+                 </td>
+             </tr>
+             <tr>
+                 <td>
+                     Email:- &nbsp; &nbsp; &nbsp; <input type="text" placeholder="Enter your Email" size="67" required/>
+                 </td>
+             </tr>
+             <tr>
+                 <td>
+                     Password:-  <input type="text" placeholder="Enter password" required/>
+                     Confirm Password:-  <input type="text" placeholder="Retype password" required/>
+                 </td>
+             </tr>
+             <tr>
+                 <td>
+                     <label for="cars">Gender:</label>&nbsp; &nbsp; &nbsp;
+                     <select id="cars" name="cars" style="width: 501px">
+                         <option value="saab">Male</option>
+                         <option value="fiat">Female</option>
+                         <option value="volvo">Others</option>
+                     </select>
+                 </td>
+             </tr>
+             <tr>
+                 <td>
+                     Date of Birth:-  <input type="date" value="2014-02-09" required/>
+                     Mobile Number:-  <input type="text" placeholder="Mobile Number" required/>
+                 </td>
+             </tr>
+             <tr>
+                 <td align="center">
+                     <button style="width: 200px">Submit</button>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                     <button style="width: 200px">Reset</button>
+                 </td>
+             </tr>
+         </table>
+     </div>
+ </div>
+ <!--addfaculty-->
+<!--login-->
+<div class="container" id="loginPosition" align="center" style="margin-top: 50px;width: 400px;height: 400px;
+background-color: rgba(255, 255, 182, 255); background-size: cover;display: none;">
+    <h2>This is login page</h2><br/>
+    <form th:action="@{/doLogIn}" method="post">
+    <p>Email:- <input type="text" name="email" size="35" required placeholder="Enter your Email" style="margin-left: 30px"/></p>
+    <p>Password:- <input type="password" name="bcriptPassword" size="35" required placeholder="Enter your Password"/></p>
+    <p><input type="submit" value="Log Me In" class="btn  btn-outline-primary btn-md" style="width: 266px" /></p>
+</form>
+<!--login-->
+</div>
+ <script>
+function loginClick() {
+	if(document.getElementById("loginPosition").style.display == "none"){
+		document.getElementById("loginPosition").style.display = "block";
+	}else if(document.getElementById("loginPosition").style.display == "block"){
+	document.getElementById("loginPosition").style.display = "none";
+	}
+}
+</script>
+</body>
+</html>
